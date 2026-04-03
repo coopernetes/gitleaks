@@ -41,7 +41,7 @@ func (s *GitDiffReader) Fragments(ctx context.Context, yield FragmentsFunc) erro
 			}
 
 			var commitInfo *CommitInfo
-			if gitdiffFile.PatchHeader != nil {
+			if gitdiffFile.PatchHeader != nil && gitdiffFile.PatchHeader.SHA != "" {
 				commitInfo = &CommitInfo{
 					SHA:     gitdiffFile.PatchHeader.SHA,
 					Message: gitdiffFile.PatchHeader.Message(),
